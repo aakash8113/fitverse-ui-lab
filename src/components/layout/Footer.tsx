@@ -1,0 +1,89 @@
+import { Link } from "react-router-dom";
+import { Sparkles, Instagram, Twitter, Facebook, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+export function Footer() {
+  return (
+    <footer className="bg-primary text-primary-foreground">
+      <div className="section-container py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Brand */}
+          <div className="space-y-4">
+            <Link to="/" className="flex items-center gap-2">
+              <div className="gradient-ai rounded-lg p-2">
+                <Sparkles className="h-5 w-5 text-white" />
+              </div>
+              <span className="text-xl font-bold">Fitverse</span>
+            </Link>
+            <p className="text-sm text-primary-foreground/70 leading-relaxed">
+              Revolutionizing fashion with AI-powered virtual try-ons. See how clothes fit before you buy.
+            </p>
+            <div className="flex gap-4">
+              <Button variant="ghost" size="icon" className="hover:bg-primary-foreground/10">
+                <Instagram className="h-5 w-5" />
+              </Button>
+              <Button variant="ghost" size="icon" className="hover:bg-primary-foreground/10">
+                <Twitter className="h-5 w-5" />
+              </Button>
+              <Button variant="ghost" size="icon" className="hover:bg-primary-foreground/10">
+                <Facebook className="h-5 w-5" />
+              </Button>
+            </div>
+          </div>
+
+          {/* Shop */}
+          <div className="space-y-4">
+            <h4 className="font-semibold">Shop</h4>
+            <ul className="space-y-3 text-sm text-primary-foreground/70">
+              <li><Link to="/shop?category=women" className="hover:text-primary-foreground transition-colors">Women</Link></li>
+              <li><Link to="/shop?category=men" className="hover:text-primary-foreground transition-colors">Men</Link></li>
+              <li><Link to="/shop?category=new" className="hover:text-primary-foreground transition-colors">New Arrivals</Link></li>
+              <li><Link to="/shop?category=sale" className="hover:text-primary-foreground transition-colors">Sale</Link></li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div className="space-y-4">
+            <h4 className="font-semibold">Company</h4>
+            <ul className="space-y-3 text-sm text-primary-foreground/70">
+              <li><Link to="/about" className="hover:text-primary-foreground transition-colors">About Us</Link></li>
+              <li><Link to="/careers" className="hover:text-primary-foreground transition-colors">Careers</Link></li>
+              <li><Link to="/sustainability" className="hover:text-primary-foreground transition-colors">Sustainability</Link></li>
+              <li><Link to="/press" className="hover:text-primary-foreground transition-colors">Press</Link></li>
+            </ul>
+          </div>
+
+          {/* Newsletter */}
+          <div className="space-y-4">
+            <h4 className="font-semibold">Stay Updated</h4>
+            <p className="text-sm text-primary-foreground/70">
+              Get the latest on new arrivals and exclusive offers.
+            </p>
+            <div className="flex gap-2">
+              <Input 
+                type="email" 
+                placeholder="Enter your email" 
+                className="bg-primary-foreground/10 border-primary-foreground/20 placeholder:text-primary-foreground/50"
+              />
+              <Button variant="secondary" size="icon">
+                <Mail className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-primary-foreground/10 mt-12 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-primary-foreground/50">
+            © 2025 Fitverse. All rights reserved.
+          </p>
+          <div className="flex gap-6 text-sm text-primary-foreground/50">
+            <Link to="/privacy" className="hover:text-primary-foreground transition-colors">Privacy</Link>
+            <Link to="/terms" className="hover:text-primary-foreground transition-colors">Terms</Link>
+            <Link to="/cookies" className="hover:text-primary-foreground transition-colors">Cookies</Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
