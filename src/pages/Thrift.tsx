@@ -1,0 +1,299 @@
+import { useState } from "react";
+import { Recycle, Leaf, Heart, TrendingUp, Plus, Upload as UploadIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { ProductCard, Product } from "@/components/shop/ProductCard";
+import { FilterSidebar } from "@/components/shop/FilterSidebar";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import { SlidersHorizontal } from "lucide-react";
+
+import thriftHero from "@/assets/thrift-hero.jpg";
+import product1 from "@/assets/products/product-1.jpg";
+import product2 from "@/assets/products/product-2.jpg";
+import product3 from "@/assets/products/product-3.jpg";
+import product4 from "@/assets/products/product-4.jpg";
+import product5 from "@/assets/products/product-5.jpg";
+import product6 from "@/assets/products/product-6.jpg";
+
+const thriftProducts: Product[] = [
+  {
+    id: "t1",
+    name: "Vintage White Blazer",
+    brand: "ZARA",
+    price: 45.00,
+    originalPrice: 189.00,
+    image: product1,
+    sizes: ["S", "M"],
+    category: "women",
+    isThrift: true,
+    condition: "Like New",
+    seller: { name: "Sarah M.", rating: 4.9 },
+  },
+  {
+    id: "t2",
+    name: "Classic Leather Biker",
+    brand: "ALL SAINTS",
+    price: 85.00,
+    originalPrice: 329.00,
+    image: product2,
+    sizes: ["M", "L"],
+    category: "men",
+    isThrift: true,
+    condition: "Excellent",
+    seller: { name: "Mike T.", rating: 4.8 },
+  },
+  {
+    id: "t3",
+    name: "Cozy Cashmere Knit",
+    brand: "UNIQLO",
+    price: 35.00,
+    originalPrice: 149.00,
+    image: product3,
+    sizes: ["XS", "S", "M"],
+    category: "women",
+    isThrift: true,
+    condition: "Like New",
+    seller: { name: "Emma W.", rating: 5.0 },
+  },
+  {
+    id: "t4",
+    name: "Elegant Evening Dress",
+    brand: "H&M",
+    price: 55.00,
+    originalPrice: 199.00,
+    image: product4,
+    sizes: ["S", "M", "L"],
+    category: "women",
+    isThrift: true,
+    condition: "Gently Used",
+    seller: { name: "Lisa K.", rating: 4.7 },
+  },
+  {
+    id: "t5",
+    name: "Utility Cargo Pants",
+    brand: "CARHARTT",
+    price: 40.00,
+    originalPrice: 89.00,
+    image: product5,
+    sizes: ["M", "L", "XL"],
+    category: "men",
+    isThrift: true,
+    condition: "Excellent",
+    seller: { name: "James R.", rating: 4.9 },
+  },
+  {
+    id: "t6",
+    name: "Boho Denim Ensemble",
+    brand: "FREE PEOPLE",
+    price: 65.00,
+    originalPrice: 159.00,
+    image: product6,
+    sizes: ["XS", "S"],
+    category: "women",
+    isThrift: true,
+    condition: "Like New",
+    seller: { name: "Amy C.", rating: 4.8 },
+  },
+];
+
+const stats = [
+  { value: "12.5k", label: "kg CO₂ Saved", icon: Leaf },
+  { value: "8.2k", label: "Items Rehomed", icon: Heart },
+  { value: "5.4k", label: "Happy Sellers", icon: TrendingUp },
+];
+
+export default function Thrift() {
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [isSellDialogOpen, setIsSellDialogOpen] = useState(false);
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Navbar />
+
+      {/* Hero */}
+      <section className="relative py-16 overflow-hidden bg-gradient-to-br from-thrift-green/5 to-thrift-green/10">
+        <div className="section-container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="badge-thrift mb-6">
+                <Recycle className="w-3.5 h-3.5" />
+                Sustainable Fashion
+              </div>
+              <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+                Pre-Loved Fashion,
+                <br />
+                <span className="text-thrift-green">Planet-Friendly</span>
+              </h1>
+              <p className="text-lg text-muted-foreground mb-8 max-w-lg">
+                Discover unique pre-owned pieces at amazing prices. Every purchase helps reduce fashion waste and saves our planet.
+              </p>
+
+              {/* Impact Stats */}
+              <div className="grid grid-cols-3 gap-6 mb-8">
+                {stats.map((stat) => (
+                  <div key={stat.label} className="text-center">
+                    <stat.icon className="w-6 h-6 text-thrift-green mx-auto mb-2" />
+                    <p className="text-2xl font-bold text-thrift-green">{stat.value}</p>
+                    <p className="text-xs text-muted-foreground">{stat.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              <Dialog open={isSellDialogOpen} onOpenChange={setIsSellDialogOpen}>
+                <DialogTrigger asChild>
+                  <Button className="bg-thrift-green hover:bg-thrift-green/90 text-white h-12 px-8">
+                    <Plus className="w-5 h-5 mr-2" />
+                    Sell Your Items
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-lg">
+                  <DialogHeader>
+                    <DialogTitle>List Your Item</DialogTitle>
+                  </DialogHeader>
+                  <div className="space-y-4 py-4">
+                    <div className="border-2 border-dashed border-border rounded-xl p-8 text-center">
+                      <UploadIcon className="w-10 h-10 text-muted-foreground mx-auto mb-3" />
+                      <p className="text-sm text-muted-foreground mb-2">Drag & drop images or click to upload</p>
+                      <Button variant="outline" size="sm">Select Files</Button>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label>Title</Label>
+                        <Input placeholder="e.g., Vintage Denim Jacket" />
+                      </div>
+                      <div className="space-y-2">
+                        <Label>Brand</Label>
+                        <Input placeholder="e.g., Levi's" />
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label>Price</Label>
+                        <Input type="number" placeholder="$0.00" />
+                      </div>
+                      <div className="space-y-2">
+                        <Label>Condition</Label>
+                        <Select>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="new">Like New</SelectItem>
+                            <SelectItem value="excellent">Excellent</SelectItem>
+                            <SelectItem value="good">Gently Used</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <Label>Description</Label>
+                      <Textarea placeholder="Describe your item..." rows={3} />
+                    </div>
+                    <Button className="w-full bg-thrift-green hover:bg-thrift-green/90 text-white">
+                      List Item
+                    </Button>
+                  </div>
+                </DialogContent>
+              </Dialog>
+            </div>
+
+            <div className="relative">
+              <div className="aspect-[4/3] rounded-3xl overflow-hidden">
+                <img
+                  src={thriftHero}
+                  alt="Sustainable Fashion"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Impact Badge */}
+              <div className="absolute -bottom-6 -left-6 bg-card rounded-2xl p-4 shadow-soft border border-border/50">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-thrift-green/10 flex items-center justify-center">
+                    <Leaf className="w-5 h-5 text-thrift-green" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium">Your Impact</p>
+                    <p className="text-xs text-muted-foreground">Avg. 2.5kg CO₂ saved per item</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Products */}
+      <section className="py-12">
+        <div className="section-container">
+          <div className="flex gap-8">
+            {/* Desktop Filters */}
+            <aside className="hidden lg:block w-64 flex-shrink-0">
+              <div className="sticky top-24">
+                <FilterSidebar />
+              </div>
+            </aside>
+
+            {/* Products */}
+            <main className="flex-1">
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center gap-4">
+                  <Sheet open={isFilterOpen} onOpenChange={setIsFilterOpen}>
+                    <SheetTrigger asChild>
+                      <Button variant="outline" className="lg:hidden">
+                        <SlidersHorizontal className="w-4 h-4 mr-2" />
+                        Filters
+                      </Button>
+                    </SheetTrigger>
+                    <SheetContent side="left" className="w-80 p-6">
+                      <FilterSidebar onClose={() => setIsFilterOpen(false)} />
+                    </SheetContent>
+                  </Sheet>
+                  <h2 className="text-2xl font-bold">Pre-Loved Finds</h2>
+                </div>
+                <span className="text-sm text-muted-foreground">
+                  {thriftProducts.length} items
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {thriftProducts.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </div>
+            </main>
+          </div>
+        </div>
+      </section>
+
+      {/* Sustainability Banner */}
+      <section className="py-16 bg-thrift-green/5">
+        <div className="section-container">
+          <div className="bg-thrift-green rounded-3xl p-8 lg:p-12 text-white text-center">
+            <Recycle className="w-12 h-12 mx-auto mb-6 animate-float" />
+            <h2 className="text-3xl font-bold mb-4">Join the Circular Fashion Movement</h2>
+            <p className="text-white/80 max-w-2xl mx-auto mb-6">
+              Every pre-loved item you buy or sell contributes to a more sustainable fashion industry. 
+              Together, we've prevented thousands of clothing items from ending up in landfills.
+            </p>
+            <div className="flex justify-center gap-4">
+              <Button className="bg-white text-thrift-green hover:bg-white/90">
+                Start Shopping
+              </Button>
+              <Button variant="outline" className="border-white text-white hover:bg-white/10">
+                Sell Your Items
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}
