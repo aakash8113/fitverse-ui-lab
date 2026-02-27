@@ -166,7 +166,7 @@ export function FilterSidebar({ className, onClose }: FilterSidebarProps) {
       </FilterSection>
 
       {/* Brand */}
-      <FilterSection title="Brand">
+      {/* <FilterSection title="Brand">
         {brands.map((brand) => (
           <label key={brand.id} className="flex items-center gap-3 cursor-pointer">
             <Checkbox
@@ -179,7 +179,7 @@ export function FilterSidebar({ className, onClose }: FilterSidebarProps) {
             )}
           </label>
         ))}
-      </FilterSection>
+      </FilterSection> */}
     </div>
   );
 }

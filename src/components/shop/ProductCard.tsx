@@ -32,7 +32,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
     : 0;
 
   return (
-    <div className={cn("card-product group", className)}>
+    <Link to={`/product/${product.id}`} className={cn("card-product group block", className)}>
       {/* Image Container */}
       <div className="relative aspect-[3/4] overflow-hidden bg-secondary">
         <img
@@ -44,7 +44,11 @@ export function ProductCard({ product, className }: ProductCardProps) {
         {/* Overlay Actions */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <div className="absolute bottom-4 left-4 right-4 flex gap-2">
-            <Button size="sm" className="flex-1 btn-ai text-xs h-9">
+            <Button 
+              size="sm" 
+              className="flex-1 bg-[#d1ebdb] text-black h-9 hover:bg-[#c7e4d3] transition-colors duration-200"
+              onClick={(e) => e.preventDefault()}
+            >
               <Sparkles className="h-3.5 w-3.5 mr-1.5" />
               Try On
             </Button>
@@ -56,6 +60,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
           variant="ghost" 
           size="icon" 
           className="absolute top-3 right-3 h-9 w-9 rounded-full bg-white/90 hover:bg-white shadow-soft opacity-0 group-hover:opacity-100 transition-opacity"
+          onClick={(e) => e.preventDefault()}
         >
           <Heart className="h-4 w-4" />
         </Button>
@@ -67,11 +72,11 @@ export function ProductCard({ product, className }: ProductCardProps) {
               New
             </span>
           )}
-          {discount > 0 && (
+          {/* {discount > 0 && (
             <span className="px-2.5 py-1 rounded-full text-xs font-medium bg-destructive text-destructive-foreground">
               -{discount}%
             </span>
-          )}
+          )} */}
           {product.isThrift && (
             <span className="badge-thrift">
               Pre-Owned
@@ -92,11 +97,9 @@ export function ProductCard({ product, className }: ProductCardProps) {
             <p className="text-xs text-muted-foreground uppercase tracking-wider">
               {product.brand}
             </p>
-            <Link to={`/product/${product.id}`}>
-              <h3 className="font-medium text-sm mt-1 truncate hover:text-accent transition-colors">
-                {product.name}
-              </h3>
-            </Link>
+            <h3 className="font-medium text-sm mt-1 truncate hover:text-accent transition-colors">
+              {product.name}
+            </h3>
           </div>
         </div>
 
@@ -129,7 +132,7 @@ export function ProductCard({ product, className }: ProductCardProps) {
           )}
         </div>
 
-        {/* Thrift Seller Info */}
+        {/* Thrift Seller Info
         {product.seller && (
           <div className="pt-2 flex items-center gap-2 text-xs text-muted-foreground border-t border-border/50 mt-2">
             <span>Sold by {product.seller.name}</span>
@@ -137,8 +140,8 @@ export function ProductCard({ product, className }: ProductCardProps) {
               ⭐ {product.seller.rating}
             </span>
           </div>
-        )}
+        )} */}
       </div>
-    </div>
+    </Link>
   );
 }

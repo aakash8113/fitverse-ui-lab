@@ -115,10 +115,10 @@ export default function Shop() {
         </div>
       </section>
 
-      <div className="section-container py-8">
-        <div className="flex gap-8">
+      <div className="w-full py-8 px-6">
+        <div className="flex gap-6">
           {/* Desktop Filters */}
-          <aside className="hidden lg:block w-64 flex-shrink-0">
+          <aside className="hidden lg:block w-56 flex-shrink-0">
             <div className="sticky top-24">
               <FilterSidebar />
             </div>
@@ -150,7 +150,7 @@ export default function Shop() {
               <div className="flex items-center gap-4">
                 {/* Sort */}
                 <Select defaultValue="newest">
-                  <SelectTrigger className="w-40 h-9">
+                  <SelectTrigger className="w-40 h-8">
                     <SelectValue placeholder="Sort by" />
                   </SelectTrigger>
                   <SelectContent>
@@ -166,7 +166,7 @@ export default function Shop() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className={cn("h-8 w-8", gridView === "3" && "bg-secondary")}
+                    className={cn("h-8 w-8 hover:bg-gray-100 hover:text-primary", gridView === "3" && "bg-gray-200")}
                     onClick={() => setGridView("3")}
                   >
                     <Grid3X3 className="w-4 h-4" />
@@ -174,7 +174,7 @@ export default function Shop() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className={cn("h-8 w-8", gridView === "4" && "bg-secondary")}
+                    className={cn("h-8 w-8 hover:bg-gray-100 hover:text-primary", gridView === "4" && "bg-gray-200")}
                     onClick={() => setGridView("4")}
                   >
                     <LayoutGrid className="w-4 h-4" />
@@ -185,9 +185,9 @@ export default function Shop() {
 
             {/* Product Grid */}
             <div className={cn(
-              "grid gap-6",
-              gridView === "4" 
-                ? "grid-cols-1 sm:grid-cols-2 xl:grid-cols-4" 
+              "grid gap-5",
+              gridView === "4"
+                ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                 : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
             )}>
               {products.map((product) => (

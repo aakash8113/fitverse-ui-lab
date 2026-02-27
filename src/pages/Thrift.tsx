@@ -230,10 +230,11 @@ export default function Thrift() {
 
       {/* Products */}
       <section className="py-12">
-        <div className="section-container">
-          <div className="flex gap-8">
+        <div className="w-full px-6">
+          <div className="flex gap-6">
+
             {/* Desktop Filters */}
-            <aside className="hidden lg:block w-64 flex-shrink-0">
+            <aside className="hidden lg:block w-56 flex-shrink-0">
               <div className="sticky top-24">
                 <FilterSidebar />
               </div>
@@ -261,7 +262,7 @@ export default function Thrift() {
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                 {thriftProducts.map((product) => (
                   <ProductCard key={product.id} product={product} />
                 ))}
@@ -278,14 +279,14 @@ export default function Thrift() {
             <Recycle className="w-12 h-12 mx-auto mb-6 animate-float" />
             <h2 className="text-3xl font-bold mb-4">Join the Circular Fashion Movement</h2>
             <p className="text-white/80 max-w-2xl mx-auto mb-6">
-              Every pre-loved item you buy or sell contributes to a more sustainable fashion industry. 
+              Every pre-loved item you buy or sell contributes to a more sustainable fashion industry.
               Together, we've prevented thousands of clothing items from ending up in landfills.
             </p>
             <div className="flex justify-center gap-4">
               <Button className="bg-white text-thrift-green hover:bg-white/90">
                 Start Shopping
               </Button>
-              <Button variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button variant="outline" className="border-white text-thrift-green hover:bg-white/10">
                 Sell Your Items
               </Button>
             </div>

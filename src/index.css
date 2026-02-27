@@ -6,6 +6,13 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+@font-face {
+     font-family: 'Mokoto';
+    src: url('./assets/mokoto-mokoto-regular-400.otf') format('opentype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
 @layer base {
   :root {
     /* Core Neutrals */
@@ -139,7 +146,7 @@
 
   /* Glass Morphism */
   .glass {
-    @apply bg-white/80 backdrop-blur-xl border border-white/20;
+    @apply bg-white backdrop-blur-none border border-white/20;
   }
 
   .glass-dark {

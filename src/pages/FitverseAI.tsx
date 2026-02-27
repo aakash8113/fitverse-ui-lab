@@ -44,14 +44,10 @@ export default function FitverseAI() {
 
         <div className="section-container relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <div className="badge-ai mx-auto mb-6">
-              <Sparkles className="w-3.5 h-3.5" />
-              AI Virtual Try-On
-            </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Try Before You Buy —
+              Coming Soon
               <br />
-              <span className="gradient-ai-text">Powered by AI</span>
+              {/* <span className="gradient-ai-text">Powered by AI</span> */}
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Upload your photo, select any clothing item, and see exactly how it looks on you. 
@@ -80,13 +76,13 @@ export default function FitverseAI() {
       </section>
 
       {/* Try-On Interface */}
-      <section className="py-12">
+      {/* <section className="py-12">
         <div className="section-container">
           <div className="bg-card rounded-3xl border border-border/50 p-8 lg:p-12 shadow-soft">
             <AITryOn />
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* How It Works */}
       <section className="py-24 bg-secondary/30">
