@@ -1,0 +1,75 @@
+import { ScrollReveal } from "./ScrollReveal";
+import { Eye, Sparkles, Recycle, Users, ShieldCheck } from "lucide-react";
+import solutionImg from "@/assets/about/solution-tech.jpg";
+
+const approaches = [
+  {
+    icon: Eye,
+    title: "AI Visualization Engine",
+    description: "See exactly how garments look on your body using our proprietary computer vision technology.",
+  },
+  {
+    icon: Sparkles,
+    title: "Smart Product Discovery",
+    description: "AI-curated recommendations that learn your style preferences and body type.",
+  },
+  {
+    icon: Recycle,
+    title: "Sustainable Marketplace",
+    description: "A circular fashion ecosystem where pre-loved pieces find new homes.",
+  },
+  {
+    icon: Users,
+    title: "User-Centered Design",
+    description: "Every feature is built from real customer feedback and shopping behavior data.",
+  },
+];
+
+export function SolutionSection() {
+  return (
+    <section className="py-24 sm:py-32" style={{ backgroundColor: "hsl(40, 20%, 97%)" }}>
+      <div className="section-container">
+        <ScrollReveal>
+          <div className="text-center mb-20">
+            <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-4 font-medium">
+              The Solution
+            </p>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight max-w-3xl mx-auto">
+              The Fitverse Approach
+            </h2>
+            <p className="text-muted-foreground mt-6 max-w-2xl mx-auto leading-relaxed">
+              We've built an integrated ecosystem that combines AI-powered virtual try-on,
+              curated shopping, and a sustainable thrift marketplace — all in one platform.
+            </p>
+          </div>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+          <ScrollReveal direction="left">
+            <div className="aspect-square rounded-2xl overflow-hidden">
+              <img
+                src={solutionImg}
+                alt="Fashion technology interface on tablet"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </ScrollReveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {approaches.map((item, i) => (
+              <ScrollReveal key={item.title} delay={0.1 * (i + 1)}>
+                <div className="group p-6 rounded-2xl bg-background border border-border/50 hover:border-foreground/20 transition-all duration-500 hover:shadow-lg">
+                  <div className="w-10 h-10 rounded-xl bg-foreground flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <item.icon className="w-5 h-5 text-background" />
+                  </div>
+                  <h3 className="font-semibold mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
