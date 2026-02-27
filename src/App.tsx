@@ -7,7 +7,6 @@ import Index from "./pages/Index";
 import Shop from "./pages/Shop";
 import FitverseAI from "./pages/FitverseAI";
 import Thrift from "./pages/Thrift";
-import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,7 +22,7 @@ const App = () => (
           <Route path="/shop" element={<Shop />} />
           <Route path="/fitverse-ai" element={<FitverseAI />} />
           <Route path="/thrift" element={<Thrift />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
