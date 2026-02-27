@@ -1,23 +1,41 @@
 import { ScrollReveal } from "./ScrollReveal";
-import { motion } from "framer-motion";
 import sustainableImg from "@/assets/about/sustainable-fashion.jpg";
-import { useParallax } from "@/hooks/use-scroll-animation";
+import { useEffect, useRef, useState } from "react";
 
 export function ClosingSection() {
-  const scrollY = useParallax();
+  const sectionRef = useRef<HTMLElement>(null);
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      // Calculate how far the section is from center of viewport
+      const sectionCenter = rect.top + rect.height / 2;
+      const viewportCenter = windowHeight / 2;
+      setOffset((sectionCenter - viewportCenter) * 0.15);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <section className="relative py-32 sm:py-40 overflow-hidden">
+    <section ref={sectionRef} className="relative py-32 sm:py-40 overflow-hidden">
       {/* Parallax background */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{ transform: `translateY(${(scrollY - 3000) * 0.15}px)` }}
-      >
-        <img
-          src={sustainableImg}
-          alt="Sustainable fashion"
-          className="w-full h-[140%] object-cover"
-        />
+      <div className="absolute inset-0 z-0">
+        <div
+          className="absolute inset-[-20%] z-0"
+          style={{ transform: `translateY(${offset}px)` }}
+        >
+          <img
+            src={sustainableImg}
+            alt="Sustainable fashion"
+            className="w-full h-full object-cover"
+          />
+        </div>
         <div className="absolute inset-0 bg-foreground/70" />
       </div>
 
