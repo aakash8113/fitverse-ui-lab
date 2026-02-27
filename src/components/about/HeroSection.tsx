@@ -29,7 +29,7 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-sm uppercase tracking-[0.3em] text-background/70 mb-6 font-medium"
         >
-          About Fitverse
+          Fitverse
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}

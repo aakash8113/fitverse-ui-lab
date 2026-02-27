@@ -8,7 +8,7 @@ const navLinks = [
   { href: "/shop", label: "Shop" },
   { href: "/fitverse-ai", label: "Fitverse AI", isAI: true },
   { href: "/thrift", label: "Thrift" },
-  { href: "/about", label: "About" },
+  { href: "/", label: "About" },
 ];
 
 export function Navbar() {

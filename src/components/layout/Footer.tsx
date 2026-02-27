@@ -47,7 +47,7 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="font-semibold">Company</h4>
             <ul className="space-y-3 text-sm text-primary-foreground/70">
-              <li><Link to="/about" className="hover:text-primary-foreground transition-colors">About Us</Link></li>
+              <li><Link to="/" className="hover:text-primary-foreground transition-colors">About Us</Link></li>
               <li><Link to="/careers" className="hover:text-primary-foreground transition-colors">Careers</Link></li>
               <li><Link to="/sustainability" className="hover:text-primary-foreground transition-colors">Sustainability</Link></li>
               <li><Link to="/press" className="hover:text-primary-foreground transition-colors">Press</Link></li>
