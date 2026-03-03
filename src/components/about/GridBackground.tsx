@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 /**
  * Animated dot-grid background that reacts to mouse proximity.
+ * Uses teal accent color matching the brand.
  */
 export function GridBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -54,11 +55,15 @@ export function GridBackground() {
           const dist = Math.sqrt((x - mx) ** 2 + (y - my) ** 2);
           const proximity = Math.max(0, 1 - dist / influenceRadius);
           const radius = 1 + proximity * maxRadius;
-          const alpha = 0.08 + proximity * 0.4;
+          const alpha = 0.06 + proximity * 0.35;
 
           ctx.beginPath();
           ctx.arc(x, y, radius, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(139, 92, 246, ${alpha})`;
+          // Teal glow near cursor, dim white otherwise
+          const r_col = Math.round(45 + proximity * 0);
+          const g_col = Math.round(160 + proximity * 20);
+          const b_col = Math.round(150 + proximity * 30);
+          ctx.fillStyle = `rgba(${r_col}, ${g_col}, ${b_col}, ${alpha})`;
           ctx.fill();
         }
       }

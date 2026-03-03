@@ -15,6 +15,7 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -60,17 +61,24 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        ai: {
-          purple: "hsl(var(--ai-purple))",
-          blue: "hsl(var(--ai-blue))",
-          violet: "hsl(var(--ai-violet))",
+        tech: {
+          teal: "hsl(var(--tech-teal))",
+          cyan: "hsl(var(--tech-cyan))",
+          glow: "hsl(var(--tech-glow))",
         },
         fashion: {
+          amber: "hsl(var(--fashion-amber))",
+          copper: "hsl(var(--fashion-copper))",
           gold: "hsl(var(--fashion-gold))",
           rose: "hsl(var(--fashion-rose))",
         },
         thrift: {
           green: "hsl(var(--thrift-green))",
+        },
+        ai: {
+          purple: "hsl(var(--ai-purple))",
+          blue: "hsl(var(--ai-blue))",
+          violet: "hsl(var(--ai-violet))",
         },
       },
       borderRadius: {
@@ -131,7 +139,8 @@ export default {
       },
       boxShadow: {
         soft: "0 4px 20px -2px rgba(0, 0, 0, 0.06), 0 2px 8px -2px rgba(0, 0, 0, 0.04)",
-        ai: "0 8px 32px -4px rgba(139, 92, 246, 0.3), 0 4px 16px -4px rgba(59, 130, 246, 0.2)",
+        tech: "0 8px 32px -4px rgba(45, 160, 150, 0.2), 0 4px 16px -4px rgba(45, 160, 150, 0.15)",
+        amber: "0 8px 32px -4px rgba(210, 130, 50, 0.2), 0 4px 16px -4px rgba(210, 130, 50, 0.1)",
         product: "0 10px 40px -10px rgba(0, 0, 0, 0.1)",
       },
     },
