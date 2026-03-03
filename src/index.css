@@ -2,113 +2,124 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fitverse Design System - Premium Fashion Tech Aesthetic */
+/* Fitverse Design System - Fashion × Technology */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @font-face {
-     font-family: 'Mokoto';
-    src: url('./assets/mokoto-mokoto-regular-400.otf') format('opentype'); 
+  font-family: 'Mokoto';
+  src: url('./assets/mokoto-mokoto-regular-400.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 @layer base {
   :root {
-    /* Core Neutrals */
-    --background: 0 0% 100%;
-    --foreground: 240 10% 4%;
+    /* Core - Warm off-white base */
+    --background: 40 20% 98%;
+    --foreground: 220 20% 10%;
 
     /* Surface Colors */
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 4%;
+    --card: 40 15% 97%;
+    --card-foreground: 220 20% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 4%;
+    --popover-foreground: 220 20% 10%;
 
-    /* Primary - Deep Slate for elegance */
-    --primary: 240 6% 10%;
-    --primary-foreground: 0 0% 100%;
+    /* Primary - Deep warm black */
+    --primary: 220 15% 12%;
+    --primary-foreground: 40 20% 98%;
 
-    /* Secondary - Light Gray */
-    --secondary: 240 5% 96%;
-    --secondary-foreground: 240 6% 10%;
+    /* Secondary - Warm cream */
+    --secondary: 35 25% 94%;
+    --secondary-foreground: 220 15% 12%;
 
     /* Muted */
-    --muted: 240 5% 96%;
-    --muted-foreground: 240 4% 46%;
+    --muted: 35 15% 94%;
+    --muted-foreground: 220 8% 46%;
 
-    /* Accent - Purple/Blue AI gradient colors */
-    --accent: 262 83% 58%;
+    /* Accent - Warm Amber/Copper */
+    --accent: 28 85% 55%;
     --accent-foreground: 0 0% 100%;
-    
-    /* AI Gradient Colors */
-    --ai-purple: 262 83% 58%;
-    --ai-blue: 217 91% 60%;
-    --ai-violet: 280 73% 53%;
-    
-    /* Fashion Accent Colors */
-    --fashion-gold: 43 96% 56%;
-    --fashion-rose: 340 82% 52%;
-    --thrift-green: 152 69% 31%;
+
+    /* Tech Colors */
+    --tech-teal: 175 65% 45%;
+    --tech-cyan: 190 80% 50%;
+    --tech-glow: 175 65% 45%;
+
+    /* Fashion Colors */
+    --fashion-amber: 28 85% 55%;
+    --fashion-copper: 20 70% 45%;
+    --fashion-gold: 43 80% 58%;
+    --fashion-rose: 340 65% 52%;
+    --thrift-green: 152 55% 38%;
+
+    /* AI Gradient Colors (updated) */
+    --ai-purple: 262 60% 55%;
+    --ai-blue: 217 70% 55%;
+    --ai-violet: 280 55% 50%;
 
     /* Destructive */
-    --destructive: 0 84% 60%;
+    --destructive: 0 72% 55%;
     --destructive-foreground: 0 0% 100%;
 
     /* Borders & Inputs */
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
-    --ring: 262 83% 58%;
+    --border: 35 15% 88%;
+    --input: 35 15% 88%;
+    --ring: 28 85% 55%;
 
     --radius: 0.75rem;
 
     /* Sidebar */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5% 26%;
-    --sidebar-primary: 240 6% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 5% 96%;
-    --sidebar-accent-foreground: 240 6% 10%;
-    --sidebar-border: 240 6% 90%;
-    --sidebar-ring: 262 83% 58%;
+    --sidebar-background: 40 15% 97%;
+    --sidebar-foreground: 220 10% 30%;
+    --sidebar-primary: 220 15% 12%;
+    --sidebar-primary-foreground: 40 20% 98%;
+    --sidebar-accent: 35 25% 94%;
+    --sidebar-accent-foreground: 220 15% 12%;
+    --sidebar-border: 35 15% 88%;
+    --sidebar-ring: 28 85% 55%;
+
+    /* Dark surface for contrast sections */
+    --surface-dark: 220 20% 8%;
+    --surface-dark-foreground: 40 15% 92%;
   }
 
   .dark {
-    --background: 240 10% 4%;
-    --foreground: 0 0% 98%;
+    --background: 220 20% 6%;
+    --foreground: 40 15% 95%;
 
-    --card: 240 10% 6%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 6%;
-    --popover-foreground: 0 0% 98%;
+    --card: 220 18% 10%;
+    --card-foreground: 40 15% 95%;
+    --popover: 220 18% 10%;
+    --popover-foreground: 40 15% 95%;
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 10% 4%;
+    --primary: 40 15% 95%;
+    --primary-foreground: 220 20% 6%;
 
-    --secondary: 240 5% 14%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 220 12% 16%;
+    --secondary-foreground: 40 15% 95%;
 
-    --muted: 240 5% 14%;
-    --muted-foreground: 240 4% 65%;
+    --muted: 220 12% 16%;
+    --muted-foreground: 220 8% 65%;
 
-    --accent: 262 83% 58%;
+    --accent: 28 85% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 5% 18%;
-    --input: 240 5% 18%;
-    --ring: 262 83% 58%;
+    --border: 220 12% 20%;
+    --input: 220 12% 20%;
+    --ring: 28 85% 55%;
 
-    --sidebar-background: 240 10% 6%;
-    --sidebar-foreground: 240 5% 85%;
-    --sidebar-primary: 262 83% 58%;
+    --sidebar-background: 220 18% 8%;
+    --sidebar-foreground: 220 8% 80%;
+    --sidebar-primary: 28 85% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 5% 14%;
-    --sidebar-accent-foreground: 240 5% 85%;
-    --sidebar-border: 240 5% 18%;
-    --sidebar-ring: 262 83% 58%;
+    --sidebar-accent: 220 12% 16%;
+    --sidebar-accent-foreground: 220 8% 80%;
+    --sidebar-border: 220 12% 20%;
+    --sidebar-ring: 28 85% 55%;
   }
 }
 
@@ -123,22 +134,36 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
     @apply font-semibold tracking-tight;
   }
 }
 
 @layer components {
+  /* Tech Gradient */
+  .gradient-tech {
+    background: linear-gradient(135deg, hsl(var(--tech-teal)) 0%, hsl(var(--tech-cyan)) 100%);
+  }
+
+  .gradient-tech-subtle {
+    background: linear-gradient(135deg, hsl(var(--tech-teal) / 0.08) 0%, hsl(var(--tech-cyan) / 0.05) 100%);
+  }
+
+  .gradient-fashion {
+    background: linear-gradient(135deg, hsl(var(--fashion-amber)) 0%, hsl(var(--fashion-copper)) 100%);
+  }
+
   /* AI Gradient Backgrounds */
   .gradient-ai {
-    background: linear-gradient(135deg, hsl(var(--ai-purple)) 0%, hsl(var(--ai-blue)) 50%, hsl(var(--ai-violet)) 100%);
+    background: linear-gradient(135deg, hsl(var(--fashion-amber)) 0%, hsl(var(--tech-teal)) 100%);
   }
 
   .gradient-ai-subtle {
-    background: linear-gradient(135deg, hsl(var(--ai-purple) / 0.1) 0%, hsl(var(--ai-blue) / 0.1) 50%, hsl(var(--ai-violet) / 0.05) 100%);
+    background: linear-gradient(135deg, hsl(var(--fashion-amber) / 0.1) 0%, hsl(var(--tech-teal) / 0.08) 100%);
   }
 
   .gradient-ai-text {
-    background: linear-gradient(135deg, hsl(var(--ai-purple)) 0%, hsl(var(--ai-blue)) 100%);
+    background: linear-gradient(135deg, hsl(var(--fashion-amber)) 0%, hsl(var(--tech-teal)) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -146,7 +171,7 @@
 
   /* Glass Morphism */
   .glass {
-    @apply bg-white backdrop-blur-none border border-white/20;
+    @apply bg-white/80 backdrop-blur-md border border-white/20;
   }
 
   .glass-dark {
@@ -164,7 +189,7 @@
 
   /* Button Variants */
   .btn-ai {
-    @apply gradient-ai text-white font-medium px-6 py-3 rounded-xl shadow-lg shadow-purple-500/25 hover:shadow-xl hover:shadow-purple-500/40 transition-all duration-300 hover:scale-[1.02];
+    @apply gradient-ai text-white font-medium px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02];
   }
 
   .btn-outline-premium {
@@ -226,6 +251,12 @@
   .nav-link-active {
     @apply text-foreground font-medium;
   }
+
+  /* Dark surface sections */
+  .section-dark {
+    background-color: hsl(var(--surface-dark));
+    color: hsl(var(--surface-dark-foreground));
+  }
 }
 
 @layer utilities {
@@ -234,8 +265,12 @@
     box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06), 0 2px 8px -2px rgba(0, 0, 0, 0.04);
   }
 
-  .shadow-ai {
-    box-shadow: 0 8px 32px -4px hsl(var(--ai-purple) / 0.3), 0 4px 16px -4px hsl(var(--ai-blue) / 0.2);
+  .shadow-tech {
+    box-shadow: 0 8px 32px -4px hsl(175 65% 45% / 0.2), 0 4px 16px -4px hsl(190 80% 50% / 0.15);
+  }
+
+  .shadow-amber {
+    box-shadow: 0 8px 32px -4px hsl(28 85% 55% / 0.2), 0 4px 16px -4px hsl(28 85% 55% / 0.1);
   }
 
   /* Text Utilities */

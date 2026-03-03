@@ -13,7 +13,7 @@ export function ClosingSection() {
   });
 
   const imgY = useTransform(scrollYProgress, [0, 1], [-50, 50]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.6, 0.7, 0.8]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.55, 0.65, 0.75]);
 
   return (
     <section ref={sectionRef} className="relative py-32 sm:py-40 overflow-hidden">
@@ -24,16 +24,24 @@ export function ClosingSection() {
           alt="Sustainable fashion"
           className="absolute inset-0 w-full h-[140%] object-cover -top-[20%]"
         />
-        <motion.div className="absolute inset-0 bg-foreground" style={{ opacity: overlayOpacity }} />
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            opacity: overlayOpacity,
+            background: "linear-gradient(135deg, hsl(220, 20%, 8%) 0%, hsl(220, 20%, 8%, 0.7) 60%, hsl(28, 85%, 55%, 0.1) 100%)",
+          }}
+        />
       </motion.div>
 
       {/* Particles */}
-      <FloatingParticles count={15} color="hsl(0, 0%, 100%)" />
+      <FloatingParticles count={10} color="hsl(28, 85%, 55%)" />
+      <FloatingParticles count={8} color="hsl(175, 65%, 45%)" />
 
       {/* Scanning line */}
       <div className="absolute inset-0 z-[1] pointer-events-none overflow-hidden">
         <motion.div
-          className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
+          className="absolute left-0 right-0 h-px"
+          style={{ background: "linear-gradient(90deg, transparent, hsl(175, 65%, 45%, 0.2), transparent)" }}
           animate={{ top: ["-5%", "105%"] }}
           transition={{ duration: 6, repeat: Infinity, ease: "linear", repeatDelay: 2 }}
         />
@@ -41,7 +49,7 @@ export function ClosingSection() {
 
       <div className="relative z-10 section-container text-center">
         <ScrollReveal>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight max-w-3xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-display font-bold text-white leading-tight max-w-3xl mx-auto">
             <TextScramble text="The Future of Fashion" delay={0.2} speed={30} />
             <br />
             <TextScramble text="Is Intelligent." delay={0.8} speed={30} />
@@ -49,7 +57,7 @@ export function ClosingSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={0.2}>
-          <p className="text-white/70 text-lg sm:text-xl max-w-2xl mx-auto mt-8 leading-relaxed font-light">
+          <p className="text-white/60 text-lg sm:text-xl max-w-2xl mx-auto mt-8 leading-relaxed font-light">
             We're building a world where artificial intelligence empowers every individual
             to express their unique style — sustainably, confidently, and without compromise.
             From India to the world, Fitverse is leading the next generation of fashion technology.
@@ -58,7 +66,8 @@ export function ClosingSection() {
 
         <ScrollReveal delay={0.4}>
           <motion.div
-            className="mt-10 mx-auto h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"
+            className="mt-10 mx-auto h-px"
+            style={{ background: "linear-gradient(90deg, transparent, hsl(28, 85%, 55%), hsl(175, 65%, 45%), transparent)" }}
             initial={{ width: 0 }}
             whileInView={{ width: 120 }}
             viewport={{ once: true }}
